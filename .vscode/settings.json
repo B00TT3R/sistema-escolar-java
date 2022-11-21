@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "lib/*.jar",
+            "Libs\\mysql-connector-java-5.1.47.jar",
+            "c:\\Users\\boott\\Downloads\\mysql-connector-java-5.1.47.jar"
+        ],
+        "exclude": [
+            "lib/mysql-connector-java-5.1.47.jar"
+        ]
+    }
+}
