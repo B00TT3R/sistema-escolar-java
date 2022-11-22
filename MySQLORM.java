@@ -22,14 +22,7 @@ class MySQLORM extends Main{
             String msgErro = e.getMessage();
             System.out.println(msgErro);
             System.out.println("Ocorrreu um erro ao tentar conectar ao banco de dados");
-            if(msgErro.contains("Unknown database")){
-                System.out.println("O banco de dados: "+ this.nomeTabela +" não existe! \n Deseja criar o banco de dados? (S/N)");
-                Scanner scanner = new Scanner(System.in);
-                if(scanner.nextLine().toLowerCase().equals("s")){
-                    this.createDB();
-                }
-                scanner.close();
-            }
+           
             return null;
         }
     }
@@ -58,6 +51,10 @@ class MySQLORM extends Main{
     protected void tableGenerator(String tableName, String[] fields){
         try{
             Connection conn = this.conectar();
+            if(conn == null){
+                System.out.println("Não foi possível conectar ao banco de dados");
+                return;
+            }
             java.sql.Statement stmt = conn.createStatement();
             stmt.executeUpdate("CREATE TABLE "+ tableName +" (" + id_field +", " + this.implode(fields) + ", PRIMARY KEY (id))");
             System.out.println("Tabela " + tableName + " criada com sucesso!");
@@ -76,9 +73,11 @@ class MySQLORM extends Main{
     public void dropDB(){
         try{
             Connection conn = this.conectar();
-            java.sql.Statement stmt = conn.createStatement();
-            stmt.executeUpdate("DROP DATABASE "+ this.nomeTabela);
-            System.out.println("Banco de dados deletado com sucesso!");
+            if(conn != null){
+                java.sql.Statement stmt = conn.createStatement();
+                stmt.executeUpdate("DROP DATABASE "+ this.nomeTabela);
+                System.out.println("Banco deletado com sucesso!");
+            }
         } catch(SQLException e){
             System.out.println("Ocorreu um erro ao tentar deletar o banco de dados");
             System.out.println(e.getMessage());
