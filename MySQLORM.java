@@ -1,8 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-//scanner
-import java.util.Scanner;
 class MySQLORM extends Main{
     protected String id_field = "id int NOT NULL AUTO_INCREMENT";
 
