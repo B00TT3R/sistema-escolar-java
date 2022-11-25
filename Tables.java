@@ -36,6 +36,15 @@ public class Tables extends MySQLORM{
         };
         this.tableGenerator("endereco", fields);
     }
+    private void login() {
+        String[] fields = {
+            "nome varchar(255) NOT NULL",
+            "email varchar(255) NOT NULL",
+            "senha varchar(255) NOT NULL",
+            "status varchar(255) NOT NULL",
+        };
+        this.tableGenerator("login", fields);
+    }
     private void pessoa(){
         String[] fields = {
             "nome varchar(255) NOT NULL",
@@ -163,6 +172,7 @@ public class Tables extends MySQLORM{
         this.curso();
         this.matrizSerie();
         this.matrizSerieDisciplina();
+        this.login();
     }
 
 }
