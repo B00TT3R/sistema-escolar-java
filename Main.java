@@ -1,5 +1,7 @@
 import java.sql.Connection;
 
+import com.mysql.jdbc.Field;
+
 
 public class Main {
     
@@ -19,6 +21,7 @@ public class Main {
             System.out.println("Opção inválida!");
         }
     }
+    
     private static void logadoADM(){        
         String[] opcoes = {
             "[1]-Deletar Banco",
@@ -51,8 +54,14 @@ public class Main {
         logadoADM();
     }
     private static void logarUsuario(){
-        System.out.println("Ainda não implementado");
-        throw new UnsupportedOperationException("Não implementado");
+        String usuario = Prompter.prompt("Digite seu email:");
+        String senha = Prompter.prompt("Digite sua Senha:");
+        String nameUSER = Prompter.prompt("Digite seu nome:");
+        String emailUsuario = "text@gmail.com";
+        String senhaUsuario = "1234";
+       if(usuario.equals(emailUsuario) && senha.equals(senhaUsuario)) {
+        System.out.println("Olá" + nameUSER + "Bem vindo ao Painel do Aluno");
+       }
     }
     private static void logarAdmin(){
         String usuarioEntrado = Prompter.prompt("Digite o nome de usuário");
