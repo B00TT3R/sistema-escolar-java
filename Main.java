@@ -57,7 +57,7 @@ public class Main {
         String senha = Prompter.prompt("Digite sua Senha:");
         String nameUSER = Prompter.prompt("Digite seu nome:");
         String emailUsuario = "text@gmail.com";
-        String senhaUsuario = "1234";
+        String senhaUsuario = "12345";
        if(usuario.equals(emailUsuario) && senha.equals(senhaUsuario)) {
         System.out.println("Olá" + nameUSER + "Bem vindo ao Painel do Aluno");
        }
