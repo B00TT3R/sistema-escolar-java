@@ -23,15 +23,6 @@ class MySQLORM extends Main{
            
             return null;
         }
-    }
-    public void config() {
-
-        System.out.println("Nome da Tabela:" + nomeTabela);
-        System.out.print("Usuário:" + usuario);
-        System.out.print("Senha:" + senha);
-        System.out.println("IPv6:" + baseUrl);
-    
-    }
     public void createDB(){
         System.out.println("Criando banco...");
         try{

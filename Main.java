@@ -27,7 +27,6 @@ public class Main {
             "[2]-Migrar Banco",
             "[3]-Conectar ao Banco",
             "[4]-Criar Banco",
-            "[5]-Configuração do Banco"
         };
         String prompt = Prompter.prompt("Olá, admin! O que deseja fazer nesse momento?"+ Prompter.listGen(opcoes));
         MySQLORM mysql = new MySQLORM();
@@ -43,9 +42,6 @@ public class Main {
         }
         else if(prompt.equals("4")){
             mysql.createDB();
-        }
-        else if(prompt.equals("5")){
-            mysql.config();
         }
         else{
             System.out.println("Opção inválida");
