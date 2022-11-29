@@ -23,6 +23,8 @@ class MySQLORM extends Main{
            
             return null;
         }
+    }
+
     public void createDB(){
         System.out.println("Criando banco...");
         try{
