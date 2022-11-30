@@ -2,13 +2,14 @@ import java.util.Scanner;
 public class Prompter {
     public static  String prompt(String message){
         System.out.println(message);
-        Scanner scanner = new Scanner(System.in);
-        String value = scanner.nextLine();
-        if(value.equals("")){
-            System.out.println("Por favor, digite uma opção válida");
-            prompt(message);
+        try (Scanner scanner = new Scanner(System.in)) {
+            String value = scanner.nextLine();
+            if(value.equals("")){
+                System.out.println("Por favor, digite uma opção válida");
+                prompt(message);
+            }
+            return value;
         }
-        return value;
         
         
     }
